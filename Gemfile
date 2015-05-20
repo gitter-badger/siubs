@@ -57,6 +57,10 @@ group :development, :test do
 end
 
 group :production do
+  # HTTP server for Rack applications
   gem 'unicorn'
+
+  # New Relic is a performance management system
   gem 'newrelic_rpm'
+  
 end
