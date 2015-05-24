@@ -52,6 +52,9 @@ group :development, :test do
   # Use Metricfu for code quality
   gem 'metric_fu', '~> 4.11.4'
   
+  # Coveralls server
+  gem 'coveralls', require: false
+  
 end
 
 group :production do

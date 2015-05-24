@@ -1,4 +1,8 @@
+
+# Define the main code language
 language: ruby
+
+# Runs rvm dependencies
 rvm:
   - 2.1.2
   - jruby-18mode
@@ -7,3 +11,6 @@ rvm:
   - ruby-head
   - jruby-head
   - ree
+
+# Coverall after success build
+  - coveralls
