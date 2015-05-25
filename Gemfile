@@ -12,6 +12,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # Make-like program in Ruby
 gem 'rake', '~> 10.4.2'
+# Display system notifications after running tests
+gem 'test_notifier', '~> 2.0.3'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
