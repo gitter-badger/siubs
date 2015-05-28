@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 20150524222935) do
   end
 
   create_table "districts", force: :cascade do |t|
-    t.string   "district_name",       limit: 255
-    t.integer  "city_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "district_name", limit: 255
+    t.integer  "city_id",       limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "parses", force: :cascade do |t|

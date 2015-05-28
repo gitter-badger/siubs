@@ -2,42 +2,45 @@ require 'rails_helper'
 
 RSpec.describe District, type: :model do
 
-	# Modules for Discrict that helps reduce duplication
+	# Modules for District that helps reduce duplication
 	module DistrictHelpers
 	end
 
-	# Shared Exemple
-	# shared_examples_for "car" do
-	# 	it 'should have 4 wheels' do
-	# 		expect(@car.wheels).to eql(4)
-	# 	end
-	# end
-	# describe Car do
-	# 	describe "Porsche" do
-	# 		before { @car = Car.preset(:porsche) }
-	# 		it_behaves_like "car"
-	# 	end
-	# 	describe "Ferrari" do
-	# 		before { @car = Car.preset(:ferrari) }
-	# 		it_behaves_like "car"
-	# 	end
-	# end
-
 	# Valid attributes for creating a District
-	let(:valid_attr){:discrict_name => "CENTRO"}
-	let(:invalid_attr){:discrict_name => "1234"}
+	let(:valid_attr){{district_name: "CENTRO"}}
+	let(:invalid_attr_name_blank){{district_name: ""}}
+	let(:invalid_attr_name_number){{district_name: "12314"}}
+	let(:invalid_attr_name_char){{district_name: "@!#{!$!}"}}
 
-	# Describes discrict unit test
+	# Describes district unit test
 	describe District do
-		describe "valid attributes" do
-			subject(:discrict){valid_attr}
-
-			it "should "
-
+		context "when enter valid attributes" do
+			subject(:valid_district){District.new(valid_attr)}
+			it "should set a district" do
+				expect(valid_district.valid?).to be_truthy
+			end
 		end
 
-		describe "invalid attributes" do
-			subject(:discrict){invalid_attr}
+		context "when enter invalid attributes" do
+
+			describe "blank name" do
+				subject(:invalid_district){District.new(invalid_attr_name_blank)}
+				it "should not be valid" do
+					expect(invalid_district.valid?).to be_falsey
+				end
+			end
+			describe "with just numbers" do
+				subject(:invalid_district){District.new(invalid_attr_name_number)}
+				it "should not be valid" do
+					expect(invalid_district.valid?).to be_falsey
+				end
+			end
+			describe "with just special chars" do
+				subject(:invalid_district){District.new(invalid_attr_name_char)}
+				it "should not be valid" do
+					expect(invalid_district.valid?).to be_falsey
+				end
+			end
 		end
 	end
 
