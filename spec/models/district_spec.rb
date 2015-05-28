@@ -11,7 +11,7 @@ RSpec.describe District, type: :model do
 	let(:valid_attr_name_number){{district_name: "CENTRO 1"}}
 	let(:invalid_attr_name_blank){{district_name: ""}}
 	let(:invalid_attr_name_number){{district_name: "12314"}}
-	let(:invalid_attr_name_char){{district_name: "@!#{!$!}"}}
+	let(:invalid_attr_name_char){{district_name: "!@#$%*{}"}}
 
 	# Describes district unit test
 	describe "Validation" do
@@ -31,7 +31,6 @@ RSpec.describe District, type: :model do
 		end
 
 		context "when enter invalid attributes" do
-
 			context "blank name" do
 				subject(:invalid_district){District.new(invalid_attr_name_blank)}
 				it "should not be valid" do
