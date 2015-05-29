@@ -1,12 +1,13 @@
 
 Given(/^I am on the parse page$/) do
-  '/parses'
+	visit('/parses')
 end
 
-When(/^I press "(.*?)"$/) do |importar|
-  click_button importar
+When(/^I press importar button$/) do
+	visit('/parses/new')
+	click_button('importar')
 end
 
-Then(/^The file "([^"]*)" sould exits$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^The file "([^"]*)" sould exits$/) do |file|
+  
 end

@@ -5,5 +5,5 @@ Feature: Parse
 
   Scenario: Uploading a file
     Given I am on the parse page
-    When I press "Importar"
+    When I press importar button
     Then The file "ubs.csv" sould exits
