@@ -62,8 +62,17 @@ class ParsesController < ApplicationController
   end
 
   def import
-    Parse.import(params[:file])
-    redirect_to parses_url, notice: "Dados importados"
+    print "---------------- "
+    accepted_formats = [".csv"]
+    file_name = params[:file].original_filename
+
+    if accepted_formats.include? File.extname(file_name)
+      Parse.import(params[:file])
+      redirect_to parses_url, notice: "Dados importados"
+    else
+      flash[:notice] = "Extensão inválida, por favor selecione um arquivo csv"
+      render :new
+    end
   end
 
   private

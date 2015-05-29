@@ -1,4 +1,8 @@
 class Parse < ActiveRecord::Base
+	# validates_format_of :file, with: %r{\.(csv)$}i, multiline: true, 
+	# message: "Extensão inválida, por favor selecione um arquivo csv",
+	# on: :create
+
 	def self.import(file)
 		# CSV.foreach(file.path, headers: true, header_converters: :symbol, converters: :numeric) do |row|
 	 #    	ubs_hash = row.to_hash
