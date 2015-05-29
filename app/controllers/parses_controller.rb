@@ -61,6 +61,11 @@ class ParsesController < ApplicationController
     end
   end
 
+  def import
+    Parse.import(params[:file])
+    redirect_to parses_url, notice: "Dados importados"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_parse
