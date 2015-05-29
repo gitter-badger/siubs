@@ -31,6 +31,9 @@ gem 'capistrano-rails', group: :development
 
 gem 'autotest-rails', :group => [:development, :test]
 
+gem 'therubyracer'
+gem 'execjs'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -40,6 +43,16 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Use Capybara for integration testing
+  gem 'capybara', '~> 2.4.4'
+
+  # Use Cucumber for BDD test
+  gem 'cucumber', '~> 2.0.0'
+
+  gem 'cucumber-rails'
+
+  gem 'database_cleaner'
 
   # Code coverage across your test suites
   gem 'simplecov', '~> 0.10.0'
