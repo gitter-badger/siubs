@@ -19,3 +19,15 @@ end
 Then(/^I should see the file upload page again$/) do
 	visit('/parses/new')
 end
+
+When(/^I upload a different extension file$/) do
+   attach_file(:file, File.join(Rails.root, 'public', 'ubs2.doc'))	
+end
+
+Then(/^the number of ubs should not change$/) do
+  Ubs.count.should > @ubs_amount
+end
+
+Then(/^I should see an error message on the parse new page$/) do
+	
+end
