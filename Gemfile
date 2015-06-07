@@ -36,6 +36,8 @@ gem 'therubyracer', '~> 0.12.2'
 gem 'execjs', '~> 2.5.2'
 # Automatic Ruby code style checking tool
 gem 'rubocop', '~> 0.31.0'
+# Devise is a flexible authentication solution for Rails based on Warden
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
