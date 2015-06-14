@@ -60,15 +60,14 @@
         <%= f.submit "Save" , class: "btn btn-success" %>
       </div>
     </div>
-
   <% end %>
+  <%= link_to "Back", :back , class: "btn btn-primary" %>
 
-  <!-- TODO: make a section for inactivate the account -->
-  <!-- <div id="legend">
-    <legend class="">Inativate my account</legend>
+  <!-- Inactivate Account -->
+  <div id="legend">
+    <legend class="">Cancel my account</legend>
   </div>
 
-  <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p> -->
+  <p><%= button_to "Cancel my account", registration_path(resource_name), class: "btn btn-danger", data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-  <%= link_to "Back", :back , class: "btn btn-danger" %>
 </div>

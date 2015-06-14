@@ -9,6 +9,8 @@ rvm:
 befor_script:
   - mysql -e 'create database ubs_test;'
 
+env: SECRET_KEY_BASE="$(bundle exec rake secret)"
+
 # Script for test env
 script:
   - export SECRET_KEY_BASE="$(bundle exec rake secret RAILS_ENV=travis)"
