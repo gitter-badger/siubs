@@ -5,7 +5,7 @@ gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2', '0.3.18'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doci
 gem 'json', '~> 1.8.2'
 # Twitter's Bootstrap, converted to Sass and ready to drop into Rails or Compass
 gem 'bootstrap-sass', '~> 3.3.4.1'
+# I like font-awesome :)
+gem 'font-awesome-rails', '~> 4.3.0.0'
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
 # This is a stub gem to fix the confusion caused by autotest being part of the ZenTest suite
@@ -36,6 +38,8 @@ gem 'therubyracer', '~> 0.12.2'
 gem 'execjs', '~> 2.5.2'
 # Automatic Ruby code style checking tool
 gem 'rubocop', '~> 0.31.0'
+# Devise is a flexible authentication solution for Rails based on Warden
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
