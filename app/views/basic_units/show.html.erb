@@ -58,6 +58,5 @@
   <%=@basic_unit.equips_situation%>
 </p>
 
-
-
+<%= content_tag(:div, nil, :class => 'fb-comments', "data-href" => "#{request.protocol}#{request.host_with_port}#{request.fullpath}", "data-width" => '100%', "data-num-posts" => "3"  ) %>
 <%= link_to 'Back', basic_units_path %>
