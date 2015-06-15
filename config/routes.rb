@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    sessions: "users/sessions"
+  }
   resources :parses do
     collection {post :import}
   end
-  
   resources :basic_units
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -11,6 +13,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+
+  # Setting up default pages
+  get 'home/inactive' => 'home#inactive'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
