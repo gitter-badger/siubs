@@ -1,0 +1,18 @@
+<!-- Inactive Account -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <%= resource.user_name %>
+            <small>
+            <%- if !resource.user_active? %>
+                Inactive account
+            <%- end %>
+            </small>
+        </h1>
+        <ol class="breadcrumb">
+            <%= link_to "Home", root_url%>
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
