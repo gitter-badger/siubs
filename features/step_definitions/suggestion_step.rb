@@ -6,11 +6,7 @@ When(/^I write "([^"]*)", "([^"]*)" and "([^"]*)"$/) do |who_suggests, respond_e
 	@suggestion = Suggestion.create(who_suggests: who_suggests, respond_email: respond_email, suggestion_text: suggestion_text)
 end
 
-When(/^send the message clicking "([^"]*)" button$/) do
-	click_button('Send Message')
-end
-
-Then(/^it should send the suggestion to the system$/) do
+Then(/^It should send the suggestion to the system$/) do
 	@suggestion.save!
 end
 

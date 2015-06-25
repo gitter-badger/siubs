@@ -1,5 +1,5 @@
 Given(/^I am on the search page$/) do
-  visit('/search')
+  visit('/basic_units')
 end
 
 When(/^I write "([^"]*)"$/) do |basic_unit_name|
@@ -10,8 +10,12 @@ When(/^press the "([^"]*)" button$/) do |search|
 	click_button(search)
 end
 
-
-Then(/^I shoul see a message "([^"]*)"$/) do |message|
-  page.should have_content "There is no basic unit with the given name"
+Then(/^I want to see a message "([^"]*)"$/) do |message|
+  page.has_content?(/Unidade Básica de Saúde não encontrada/i)
 end
+
+Then(/^I want to see the the ubs name$/) do
+  page.has_content?(/US OSWALDO DE SOUZA/i)
+end
+
 

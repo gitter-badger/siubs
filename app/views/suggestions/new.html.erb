@@ -65,6 +65,7 @@
                 <%= f.text_field :who_suggests, autofocus: true, class: "form-control", id: "name" %>
             </div>
         </div>
+        
         <!-- Email -->
         <div class="control-group form-group">
             <div class="controls">
@@ -84,7 +85,7 @@
 
         <!-- Button -->
         <div class="controls">
-            <%= f.submit "Send Message" , class: "btn btn-primary" %>
+            <%= f.submit "Send Message" , class: "btn btn-primary", id: "Send Message" %>
         </div>
         <% end %>
     </div>

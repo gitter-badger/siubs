@@ -7,7 +7,7 @@ Feature: Send a Suggestion
 	Scenario: Sending a valid suggestion
 		Given I am on the contact page
 		When I write "my name", "email" and "suggestion text"
-		When press the "Send Message" button
-		Then it should send the suggestion to the system
+		And I press "Send Message"
+		Then It should send the suggestion to the system
 		And should show a thank you page
 		
