@@ -8,7 +8,7 @@ RSpec.describe BasicUnit, type: :model do
   		longitude: 15.841038, 
   		estab_name: "Hospital", 
   		phone: "123",
-  		city_id: "1234567"
+  		city_id: 0
   }}
 
 	let(:invalid_attributes) {{
@@ -16,7 +16,7 @@ RSpec.describe BasicUnit, type: :model do
   		longitude: "not_a_number", 
   		estab_name: "", 
   		phone: "phone",
-  		city_id: "12345678"
+  		city_id: 0
   }} 
 
   context "Valid Basic Unit" do
@@ -40,19 +40,24 @@ RSpec.describe BasicUnit, type: :model do
   end
 
   describe 'search' do
-
+    let(:valid_attr) {{
+      latitude: 15.841038, 
+      longitude: 15.841038, 
+      estab_name: "Hospital", 
+      phone: "123"
+    }}
     context "With a valid name" do
-      let(:valid_name){"UBS"}
-
+      subject(:city){City.create}
+      subject(:basic_unit){BasicUnit.create({latitude: 15.841038, longitude: 15.841038, estab_name: "Hospital", phone: 123})}
       before do
-        @basic_unit = BasicUnit.create(estab_name: valid_name)
-        @search = BasicUnit.search(valid_name)
+        @valid_name = basic_unit.estab_name
+        @search = BasicUnit.search(@valid_name)
       end
 
       it "should have the main data of the basic_unit" do
-        expect(@search.estab_name).not_to be_empty
-        expect(@search.latitude).not_to be_empty
-        expect(@search.longitude).not_to be_empty
+        expect(@search.estab_name).not_to be_nil
+        expect(@search.latitude).not_to be_nil
+        expect(@search.longitude).not_to be_nil
       end
     end
 
@@ -64,7 +69,7 @@ RSpec.describe BasicUnit, type: :model do
       end
 
       it "should not return an basic_unit" do
-        expect(@seach).to be_empty
+        expect(@search).to be_nil
       end
     end
 

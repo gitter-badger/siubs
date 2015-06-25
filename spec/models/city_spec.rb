@@ -9,6 +9,7 @@ RSpec.describe City, type: :model do
 
  	# Attributes for District
 	let(:valid_attr_district){{district_name: "CENTRO"}}
+	let(:valid_attr_district_second){{district_name: "NORTE"}}
 
 	describe "association" do
 		context "with a valid district" do
@@ -24,7 +25,7 @@ RSpec.describe City, type: :model do
 
 		context "with multiple valid districts" do
 			subject(:district_one){District.create!(valid_attr_district)}
-			subject(:district_two){District.create!(valid_attr_district)}
+			subject(:district_two){District.create!(valid_attr_district_second)}
 			subject(:city){City.create(valid_attr)}
 			it "should create a association between city and districts" do
 				city.districts << district_one
