@@ -13,6 +13,7 @@ class CreateBasicUnits < ActiveRecord::Migration
       t.string :special_needs_situation
       t.string :equips_situation
       t.string :meds_situation
+      t.references :evaluations
 
       t.timestamps null: false
     end

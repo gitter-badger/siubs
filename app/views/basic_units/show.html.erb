@@ -57,37 +57,62 @@
 </p>
 
 <p>
-  <strong>Avaliação da UBS: </strong>
+  <strong>Avaliacao Média:</strong>
+  <%
+    sum = 0.0;
+    evaluations = Evaluation.where(:basic_unit_id => @basic_unit.id);
+    evaluations.each do |e|
+      sum += e.rank
+    end
+    total = evaluations.count
+    if total == 0
+      average = "Nenhuma Avaliação"
+    else
+      average = "#{(sum/total).round(2)} / 5"
+    end
+  %>
+  <tr><%= average %></tr>
+</p>
 
-  <button type="button" class="btn-default" onclick="evaluation(1)">
+<p>
+  <strong>Qual seu nível de satisfação a respeito dessa UBS? </strong>
+
+  <button type="button" class="btn-default btn-xs" onclick="evaluation(1)">
     <span class="glyphicon glyphicon-star" aria-hidden="true" id="rank1"></span>
   </button>
 
-  <button type="button" class="btn-default" onclick="evaluation(2)">
+  <button type="button" class="btn-default btn-xs" onclick="evaluation(2)">
     <span class="glyphicon glyphicon-star" aria-hidden="true" id="rank2"></span>
   </button>
 
-  <button type="button" class="btn-default" onclick="evaluation(3)">
+  <button type="button" class="btn-default btn-xs" onclick="evaluation(3)">
     <span class="glyphicon glyphicon-star" aria-hidden="true" id="rank3"></span>
   </button>
 
-  <button type="button" class="btn-default" onclick="evaluation(4)">
+  <button type="button" class="btn-default btn-xs" onclick="evaluation(4)">
     <span class="glyphicon glyphicon-star-empty" aria-hidden="true" id="rank4"></span>
   </button>
 
-  <button type="button" class="btn-default" onclick="evaluation(5)">
+  <button type="button" class="btn-default btn-xs" onclick="evaluation(5)">
     <span class="glyphicon glyphicon-star-empty" aria-hidden="true" id="rank5"></span>
   </button>
+
+  <%= form_tag basic_unit_path, :method => 'patch' do %>
+    <%= hidden_field_tag(:rank, "3") %>
+    <%= submit_tag "Avaliar" %>
+  <% end %>
 </p>
 
 <script>
   function evaluation(rank) {
-    for (var i = 1; i <= rank; i++) {
-      document.getElementById("rank"+i).className = "glyphicon glyphicon-star";
-    };
 
-    for (var i = rank+1; i <= 5; i++) {
-      document.getElementById("rank"+i).className = "glyphicon glyphicon-star-empty";
+    document.getElementById("rank").value = rank;
+
+    for (var i = 1; i <= 5; i++) {
+      if (i <= rank)
+        document.getElementById("rank"+i).className = "glyphicon glyphicon-star";
+      else
+        document.getElementById("rank"+i).className = "glyphicon glyphicon-star-empty";
     };
   }
 </script>

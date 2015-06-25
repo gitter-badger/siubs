@@ -48,8 +48,11 @@ class BasicUnitsController < ApplicationController
   # PATCH/PUT /basic_units/1
   # PATCH/PUT /basic_units/1.json
   def update
+    basic_unit = BasicUnit.find(params[:id]);
+    @evaluation = Evaluation.create(:rank => params[:rank], :basic_unit_id => basic_unit.id);
+
     respond_to do |format|
-      if @basic_unit.update(basic_unit_params)
+      if @basic_unit.update({})
         format.html { redirect_to @basic_unit, notice: 'Basic unit was successfully updated.' }
         format.json { render :show, status: :ok, location: @basic_unit }
       else

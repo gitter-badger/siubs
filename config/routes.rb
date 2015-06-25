@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :parses, only: [:index, :new, :create] do
     collection {post :import}
   end
-  resources :basic_units, only: [:index, :show]
+  resources :basic_units, only: [:index, :show, :update]
   resources :suggestions, only: [:index, :create, :new]
 
 

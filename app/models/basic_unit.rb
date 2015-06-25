@@ -2,6 +2,7 @@ class BasicUnit < ActiveRecord::Base
   belongs_to :city
   belongs_to :address
   belongs_to :district
+  has_many :evaluations
 
   validates :latitude, numericality: true
   validates :longitude, numericality: true
