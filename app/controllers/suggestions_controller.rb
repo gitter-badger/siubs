@@ -15,6 +15,7 @@ class SuggestionsController < ApplicationController
 	    if @suggestion.save
 	    	redirect_to "/suggestions/thank_you"
 	    else
+	    	render :new
 	    end
 	end
 	

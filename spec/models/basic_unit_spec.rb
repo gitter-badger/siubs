@@ -42,9 +42,10 @@ RSpec.describe BasicUnit, type: :model do
   describe 'search' do
 
     context "With a valid name" do
-      let(:valid_name){"US OSWALDO DE SOUZA"}
+      let(:valid_name){"UBS"}
 
       before do
+        @basic_unit = BasicUnit.create(estab_name: valid_name)
         @search = BasicUnit.search(valid_name)
       end
 
