@@ -5,8 +5,8 @@ Feature: Edit perfil
 
 
   Scenario:
-    Given I am a logged in as "teste" with password "secret"
-    And I am in the 'Edit Profile' Page
+    Given I am a logged in as "mymail@mail.com" with password "mypassword"
+    And I am on the "edit" Page
     When I edit my "e-mail" with "mail@mail.com"
-    And I press the "Log in" Button
+    And I press the "Save" Button
     Then my profile account email should be "mymail@mail.com"
