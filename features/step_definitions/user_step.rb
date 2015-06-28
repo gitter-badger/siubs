@@ -1,4 +1,5 @@
-Given(/^I am in the 'Create account' page$/) do
+# First Scenario
+Given(/^I am on the "([^"]*)" page$/) do |page|
   visit(new_user_registration_path)
 end
 
@@ -26,19 +27,17 @@ Then(/^an account with the username "([^"]*)" should exist$/) do |name|
   User.find_by_user_name(name)
 end
 
-# Second scanario
-
-Given(/^I am a logged in as "([^"]*)" with password "([^"]*)"$/) do |email, password|
-	unless email.blank?
-	  visit 'users/sign_in'
-	  fill_in "e-mail", :with => email
-	  fill_in "pwd", :with => password
-	  click_button "Log in"
-	end
+# Second Scenario
+Given(/^I am a logged in as "([^"]*)", "([^"]*)" with password "([^"]*)"$/) do |user, email, password|
+	User.create!(user_name: user, email: email, password: password, password_confirmation: password)
+	visit '/users/sign_in'
+	fill_in "e-mail", :with => email
+	fill_in "pwd", :with => password
+	click_button "Log in"
 end
 
-Given(/^I am in the 'Edit Profile' Page$/) do
-  visit '/users/edit'
+And(/^I am on the "([^"]*)" Page$/) do |page|
+	visit '/users/edit'
 end
 
 When(/^I edit my "([^"]*)" with "([^"]*)"$/) do |field, new_email|
@@ -50,7 +49,7 @@ When(/^I press the "([^"]*)" Button$/) do |save|
 end
 
 Then(/^my profile account email should be "([^"]*)"$/) do |email|
-  @user = User.find_by_email(email)
-  @user.present?
+	@user = User.find_by_email(email)
+	@user.present?
 end
 

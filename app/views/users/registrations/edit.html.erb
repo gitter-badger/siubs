@@ -25,7 +25,7 @@
       <!-- Email -->
       <div class="field">
         <%= f.label :email, class: "control-label" %><br />
-        <%= f.email_field :email, autofocus: true %>
+        <%= f.email_field :email, autofocus: true, id: "e-mail" %>
       </div>
     </div>
 
@@ -60,7 +60,7 @@
     <div class="control-group">
       <!-- Button -->
       <div class="controls">
-        <%= f.submit "Save" , class: "btn btn-success" %>
+        <%= f.submit "Save" , class: "btn btn-success", id: "Save"%>
       </div>
     </div>
   <% end %>

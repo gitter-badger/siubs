@@ -5,7 +5,7 @@ Feature: Edit perfil
 
 
   Scenario:
-    Given I am a logged in as "mymail@mail.com" with password "mypassword"
+    Given I am a logged in as "user", "mymail@mail.com" with password "mypassword"
     And I am on the "edit" Page
     When I edit my "e-mail" with "mail@mail.com"
     And I press the "Save" Button
