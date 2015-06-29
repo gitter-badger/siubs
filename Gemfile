@@ -59,11 +59,15 @@ group :development, :test do
   # Code coverage across your test suites
   gem 'simplecov', '~> 0.10.0', require: false
   # BDD for ruby and rails
-  gem 'rspec-rails', '~> 3.2.1' 
+  gem 'rspec-rails', '~> 3.2.1'
   # Use Metricfu for code quality
   gem 'metric_fu', '~> 4.11.4'
   # Coveralls server
   gem 'coveralls', require: false
+  # A library for setting up Ruby objects as test data
+  gem 'factory_girl_rails', '~> 4.5.0'
+  # Provides a framework and DSL for defining and using factories
+  gem 'factory_girl', '~> 4.5.0'
 end
 
 group :production do

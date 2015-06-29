@@ -17,11 +17,8 @@
     <% @basic_unit.each do |basic_unit| %>
       <tr>
         <td><%= basic_unit.estab_name %></td>
-        <td><%= link_to 'Perfil', basic_unit_path(basic_unit) %></td>
+        <td><%= link_to 'Perfil', basic_unit_path(basic_unit), id: "profile#{basic_unit.id}" %></td>
       </tr>
     <%end%>
   </tbody>
 </table>
-
-
-
