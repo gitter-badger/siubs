@@ -48,8 +48,17 @@ When(/^I press the "([^"]*)" Button$/) do |save|
 	click_button save
 end
 
+When(/^I press the "([^"]*)" link$/) do |save|
+	click_link save
+end
+
 Then(/^my profile account email should be "([^"]*)"$/) do |email|
 	@user = User.find_by_email(email)
 	@user.present?
 end
+
+Then(/I want to see 'Inactive account'/) do
+    page.has_content?(/Inactive account/i)
+end
+
 
