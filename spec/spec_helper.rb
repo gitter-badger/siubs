@@ -16,9 +16,10 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require "test_notifier/runner/rspec"
 require 'coveralls'
-Coveralls.wear!
+Coveralls.wear!('rails')
+
+require "test_notifier/runner/rspec"
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

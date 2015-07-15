@@ -15,10 +15,7 @@ script:
   - bundle exec rake db:migrate:reset RAILS_ENV=travis
   - bundle exec cucumber RAILS_ENV=travis
   - bundle exec rake spec RAILS_ENV=travis
-
-# After success runs coveralls for coverage
-after_success: coveralls
-
+  
 # Specify branchs to build
 branches:
     only:
