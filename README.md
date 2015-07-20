@@ -1,4 +1,6 @@
 # UBS
+
+[![Join the chat at https://gitter.im/SIUBS/siubs](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/SIUBS/siubs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Coverage Status](https://coveralls.io/repos/SIUBS/siubs/badge.svg?branch=master&service=github)](https://coveralls.io/github/SIUBS/siubs?branch=master)  [![Build Status](https://travis-ci.org/SIUBS/siubs.svg)](https://travis-ci.org/SIUBS/siubs)
 
 ## The Project
